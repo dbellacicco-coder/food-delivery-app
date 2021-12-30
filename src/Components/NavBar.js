@@ -1,17 +1,16 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
+
 
 const NavBar = () => {
-
   const [menuOpen, setMenuOpen] = useState(false);
-
 
   function responsiveMenu() {
     return (
-      <div className="fixed h-screen lg:hidden w-1/2  sm:w-1/4 bg-gray-700 top-10 text-center">
-        <ul className="menu-list flex flex-col text-white font-bold text-sm uppercase">
+      <div className="container fixed h-full lg:hidden w-full   bg-gray-700 top-10 text-center">
+        <ul className="menu-list flex flex-col text-white gap-7 font-bold text-sm uppercase">
           <li className="menu-list-item px-3 py-3 hover:bg-gray-800">
             <a href="$#">Inicio</a>
-          </li> 
+          </li>
           <li className="menu-list-item px-3 py-3  hover:bg-gray-800">
             <a href="$#">Productos</a>
           </li>
@@ -19,44 +18,81 @@ const NavBar = () => {
             <a href="$#">Contacto</a>
           </li>
         </ul>
+        <button className="bg-green-500 hover:bg-green-800 mt-4 p-1 text-sm font-bold text-white rounded-md mr-1">
+          Sing Up
+        </button>
       </div>
     );
   }
 
   const ShowResponsiveMenu = () => {
-     (menuOpen) ? setMenuOpen(false) : setMenuOpen(true)
-  }
+    menuOpen ? setMenuOpen(false) : setMenuOpen(true);
+  };
   return (
-      <div className="flex h-10 flex-row justify-between items-center bg-gray-800">
-        <div className="brand-log font-bold p-2 mr-4 inline-flex items-center text-white">
-          <a href="$#" className="p-2 mr-4 inline-flex items-center text-white uppercase">
-            {" "}
-            Food Delivery App
-          </a>
-        </div>
+    <div className="flex h-10 flex-row justify-between items-center bg-slate-200">
+      <div className="brand-log font-bold p-2 mr-4 inline-flex items-center text-white">
+        <a href="$#" className="p-2 mr-4 inline-flex items-center text-black">
+          {" "}
+          <span className="font-bold  text-green-500">Quick</span>ToGo
+        </a>
+      </div>
 
-        <ul className="menu-list hidden lg:flex lg:flex-row  text-white text-sm uppercase">
-          <li className="menu-list-item px-3">
+      <div className="hidden lg:flex lg:flex-row items-center ">
+        <ul className="menu-list lg:flex lg:flex-row  text-black text-sm font-bold  ">
+          <li className="menu-list-item px-3 hover:text-gray-600">
             <a href="$#">Inicio</a>
           </li>
-          <li className="menu-list-item px-3">
+          <li className="menu-list-item px-3 hover:text-gray-600">
             <a href="$#">Productos</a>
           </li>
-          <li className="menu-list-item px-3">
+          <li className="menu-list-item px-3 hover:text-gray-600">
             <a href="$#">Contacto</a>
           </li>
         </ul>
 
-        <button onClick={ () =>  (ShowResponsiveMenu())} className="md:hidden lg:hidden">
-        {menuOpen ? <svg xmlns="http://www.w3.org/2000/svg" class="text-white h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-</svg>  : <svg xmlns="http://www.w3.org/2000/svg" class=" text-white h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /> </svg>}
-        
-
+        <button className="bg-green-500 hover:bg-green-800 p-1 text-sm font-bold text-white rounded-md mr-1">
+          Sing Up
         </button>
-        {menuOpen ? responsiveMenu() : null}
       </div>
+
+      <button
+        onClick={() => ShowResponsiveMenu()}
+        className="lg:hidden"
+      >
+        {menuOpen ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-black h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className=" text-black h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />{" "}
+          </svg>
+        )}
+      </button>
+      {menuOpen ? responsiveMenu() : null}
+    </div>
   );
 };
 
