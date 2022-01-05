@@ -7,10 +7,11 @@ import Footer from "./Components/Footer";
 
 function App() {
 
-  const [basquetContainer, setBasquetContainer] = useState([]);
-  const [itemSelected, setItemSelected] = useState({})
 
-  
+
+
+// setBasquetContainer([...basquetContainer,itemSelected])
+
   return (
     <div className="container bg-white  mx-auto">
       <NavBar />
@@ -19,10 +20,11 @@ function App() {
 
       <div className="mt-12 md:flex">
         <ProductsListContainer
-        setItemSelected={setItemSelected}
          />
 
-        <CartBasquet />
+        <CartBasquet
+      
+         />
       </div>
       <Footer />
     </div>
