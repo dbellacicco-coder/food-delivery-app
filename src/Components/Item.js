@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import ProductCounter from "./ProductCounter";
+import { Link } from "react-router-dom";
 
 const Item = ({
-  product
+  product,
+  setProduct
 }) => {
 
 
-  const { title, price,image,description} = product;
+  const { title, price,image,description,id} = product;
 
   
 
@@ -17,11 +20,8 @@ const Item = ({
       <p className="text-black text-base">
         {description}
       </p>
-      <button
-        className="text-white p-2 bg-green-600 rounded-md hover:bg-green-800"
-      >
-        Add to cart
-      </button>
+      <Link className="text-black p-2 bg-green-300 rounded-md hover:bg-green-800" to={"/item/"+id}> Ver Mas </Link>
+     <ProductCounter setProduct={setProduct} product={product}/>
     </div>
   );
 };

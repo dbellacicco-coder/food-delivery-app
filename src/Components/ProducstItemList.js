@@ -3,6 +3,7 @@ import Item from "./Item";
 
 const ProductItemList = ({
   products
+  ,setProduct
 }) => {
 
 
@@ -11,6 +12,7 @@ const ProductItemList = ({
       {products.map((product) => {
         return (
           <Item
+          setProduct={setProduct}
             key={product.id}
             product={product}
           />

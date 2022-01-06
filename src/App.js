@@ -1,33 +1,40 @@
 import React, { useState } from "react";
-import ProductsListContainer from "./Components/ProductsListContainer";
-import CartBasquet from "./Components/CartBasquet";
 import NavBar from "./Components/NavBar";
 import Hero from "./Components/Hero";
 import Footer from "./Components/Footer";
+import ProducDetailContainer from "./Components/ProductDetailContainer";
+import Main from "./Components/Main";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
+  const [product, setProduct] = useState({});
 
+  // setBasquetContainer([...basquetContainer,itemSelected])
 
-
-
-// setBasquetContainer([...basquetContainer,itemSelected])
-
+  const links = ["Inicio", "Categorias", "Contacto"];
   return (
-    <div className="container bg-white  mx-auto">
-      <NavBar />
-      <Hero/>
-      
+    <BrowserRouter>
+      <div className="container bg-white  mx-auto">
+        <NavBar links={links} />
+        {/*afafffa
+       
+        */}
 
-      <div className="mt-12 md:flex">
-        <ProductsListContainer
-         />
+        <Hero />
 
-        <CartBasquet
-      
-         />
+        <ProducDetailContainer product={product} />
+        <Main setProduct={setProduct} product={product} />
+        {/*<div className="mt-12 md:flex">
+
+          <ProductsListContainer setProduct={setProduct} />
+
+          <CartBasquet product={product} />
+          
+          </div> */}
+
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

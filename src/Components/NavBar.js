@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
-const NavBar = () => {
+const NavBar = ( {links}) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   function responsiveMenu() {
@@ -39,15 +40,13 @@ const NavBar = () => {
 
       <div className="hidden lg:flex lg:flex-row items-center ">
         <ul className="menu-list lg:flex lg:flex-row  text-black text-sm font-bold  ">
-          <li className="menu-list-item px-3 hover:text-gray-600">
-            <a href="$#">Inicio</a>
+         
+         {links.map(linkName => {
+           return <li className="menu-list-item px-3 hover:text-gray-600">
+        <Link to={"/"+linkName}>{linkName} </Link>
           </li>
-          <li className="menu-list-item px-3 hover:text-gray-600">
-            <a href="$#">Productos</a>
-          </li>
-          <li className="menu-list-item px-3 hover:text-gray-600">
-            <a href="$#">Contacto</a>
-          </li>
+         })}
+         
         </ul>
 
         <button className="bg-green-500 hover:bg-green-800 p-1 text-sm font-bold text-white rounded-md mr-1">

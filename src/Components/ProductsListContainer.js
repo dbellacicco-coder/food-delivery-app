@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import ProductsItemList from "./ProducstItemList";
 
-const ProductsListContainer = () => {
+const ProductsListContainer = ({setProduct}) => {
 
   const [products, setProducts] = useState([]);
 
@@ -25,14 +25,11 @@ const ProductsListContainer = () => {
  
 
 
-console.log(products);
-
-
 
   return (
     <div className="mx-2 md:w-3/5 lg:w-4/5">
     <h1 className="text-center p-3 text-lg font-bold text-black">Our Popular <span className=" font-bold text-green-500">Categories</span> </h1>
-      <ProductsItemList  products={products} />
+      <ProductsItemList setProduct={setProduct}  products={products} />
     </div>
   );
 };
